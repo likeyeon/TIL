@@ -1,5 +1,5 @@
 # 1. Start, Library VS Framework
-
+본 내용은 [Nomad Coders - NextJS 시작하기 강의](https://nomadcoders.co/nextjs-fundamentals)를 토대로 작성하였습니다.
 ## 1. Start
 
 ### 설치
