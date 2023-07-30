@@ -3,6 +3,7 @@
 <br/>
 - **Server Side Rendering**
   - `SSR`은 서버 사이드 렌더링이라는 뜻으로, **구동 방식은 서버에서 렌더링하여 완성된 HTML 파일을 로드해 준다.**
+  - 모든 처리가 완료되면, 모든 데이터를 한 번에 보게 됨 -> search engine에 유용
   - 만약 API load가 느리다면 유저는 아무것도 보지 못한 채 오래 기다려야 한다는 단점이 있음
 
 - **getServerSideProps**
@@ -25,4 +26,15 @@ export async function getServerSideProps() {
   return { props: { data } }
 }
 ```
+```
+// _app.js
+// NextJS는 이 함수를 실행시켜줘서 {...pageProps}에 넣어줌 -> Home의 props처럼 들어오게 됨
 
+export default function App({ Component, pageProps }) {
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+}
+```
