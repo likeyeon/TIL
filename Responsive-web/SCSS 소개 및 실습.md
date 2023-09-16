@@ -52,21 +52,22 @@
 
 **확장/상속(expand)**
 - sass 에서 특정 선택자를 상속 할 때, `@extend` 지시자를 사용한다.
+- 연관성있는 선택자를 묶을 수 있지만 불필요한 선택자가 생기는 것을 막고 싶다면 %placeholder를 사용하면 됩니다.
 ```scss
 // 작성 방법 : @extend .클래스명; 또는 @extend %클래스명;
-%message-shared {
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #333;
+%btn {
+  width: 100px;
+  height: 80px;
 }
 
-.message {
-  @extend %message-shared;
+.btn_success {
+  @extend %btn;
+  color: green;
 }
 
-.success {
-  @extend %message-shared;
-  border-color: green;
+.btn_danger {
+  @extend %btn;
+  color: red;
 }
 ```
 
@@ -105,6 +106,8 @@
   // color: #fff;;
 }
 ```
+**expand VS mixin 차이점은? 🤔**
+- 선택자간 연관성이 존재한다면 `extend` 를 사용하고, 연관성은 없지만 코드가 겹치는 선택자들이라면 `mixin` 으로 소스코드의 중복을 없애기 위해 사용
 
 **연산자**
 - SCSS에서 사칙연산이나 논리연산과 같은 연산을 할 수 있음
